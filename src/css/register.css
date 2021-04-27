@@ -1,0 +1,60 @@
+.wrapper {
+    width: 1000px;
+    height: 600px;
+    margin: auto;
+    margin-top: 30px;
+    border: 1px solid #d6d6d6;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.register_title .lg,
+.register_title .rg {
+    float: left;
+    width: 499px;
+    height: 83px;
+    color: #666;
+    background-color: #f3f4f5;
+    font-size: 24px;
+    line-height: 83px;
+    text-align: center;
+}
+
+.register_title .lg:hover,
+.register_title .rg:hover {
+    color: #00a4ff;
+    border-top: 2px solid #00a4ff;
+}
+
+.register_title .lg:visited,
+.register_title .rg:visited {
+    color: #00a4ff;
+    border-top: 2px solid #00a4ff;
+}
+
+.form {
+    border-top: 1px solid transparent;
+    width: 800px;
+    height: 500px;
+    margin: auto;
+    margin-top: 130px;
+}
+.line {
+    width: 350px;
+    margin: 40px auto 0;
+}
+/*.line_vcode {*/
+/*    display: inline-block;*/
+/*}*/
+#submit {
+    display: block;
+    margin: 50px auto 0;
+    width: 350px;
+    height: 50px;
+    border-radius: 6px;
+    background-color: #00a4ff;
+    color: #fff;
+    border-style: none;
+    font-size: 22px;
+}

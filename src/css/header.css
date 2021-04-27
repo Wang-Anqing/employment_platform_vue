@@ -1,0 +1,101 @@
+.header {
+    height: 60px;
+    margin: 15px auto;
+}
+
+.logo {
+    width: 180px;
+    height: 60px;
+    float: left;
+    vertical-align: middle;
+}
+
+.nav {
+    float: left;
+    margin-left: 27px;
+}
+
+.nav-item {
+    float: left;
+    margin: 0 15px;
+
+}
+
+.nav-item a {
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+}
+
+.nav-item a:hover {
+    height: 60px;
+    line-height: 60px;
+    color: #00a4ff;
+    border-bottom: 2px solid #00a4ff;
+}
+
+.search {
+    display: inline-block;
+    float: left;
+    height: 60px;
+    margin-left: 170px;
+    line-height: 60px;
+}
+
+.login {
+    float: right;
+    margin: 10px;
+}
+
+.head {
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin: 10px 40px;
+    margin-right: 10px;
+    line-height: 40px;
+    vertical-align: middle;
+}
+.username {
+    /*background-color: red;*/
+    float: right;
+    height: 60px;
+    width: 110px;
+    margin-right: 20px;
+    line-height: 60px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.username:hover{
+    color: #00a4ff;
+}
+.personNav {
+    width: 270px;
+    height: 130px;
+    margin: 10px auto;
+    /*background-color: red;*/
+}
+.personNav li {
+    float: left;
+    display: inline-block;
+    width: 90px;
+    height: 85px;
+}
+.personNav li:hover{
+    background-color: #f3f4f5;
+}
+.personNav li i{
+    font-style: normal;
+    display: block;
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    margin: 2px auto;
+}
+.personNav li span {
+    display: block;
+    width: 60px;
+    margin: 2px auto;
+}

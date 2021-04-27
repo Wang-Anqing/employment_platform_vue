@@ -1,0 +1,117 @@
+.wrapper {
+    width: 1000px;
+    height: 594px;
+    margin: auto;
+    margin-top: 30px;
+    border: 1px solid #d6d6d6;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.login_title .lg,
+.login_title .rg {
+    float: left;
+    width: 499px;
+    height: 83px;
+    color: #666;
+    background-color: #f3f4f5;
+    font-size: 24px;
+    line-height: 83px;
+    text-align: center;
+}
+
+.login_title .lg:hover,
+.login_title .rg:hover {
+    color: #00a4ff;
+    border-top: 2px solid #00a4ff;
+}
+
+.login_title .lg:visited,
+.login_title .rg:visited {
+    color: #00a4ff;
+    border-top: 2px solid #00a4ff;
+}
+
+.form {
+    border-top: 1px solid transparent;
+    width: 800px;
+    height: 400px;
+    margin: auto;
+    margin-top: 130px;
+}
+
+.line_number {
+    width: 350px;
+    margin: 70px auto 0;
+}
+
+.line_number label {
+    font-size: 20px;
+    font-weight: 400;
+    color: #00a4ff;
+}
+
+.line_pass {
+    width: 350px;
+    margin: 70px auto 0;
+}
+
+.line_pass label {
+    font-size: 20px;
+    font-weight: 400;
+    color: #00a4ff;
+}
+
+.number {
+    display: block;
+    width: 350px;
+}
+
+.number {
+    display: block;
+    border-top: 1px solid transparent;
+    width: 350px;
+    height: 50px;
+    margin: 70px auto 0;
+}
+
+.password {
+    display: block;
+    width: 350px;
+    height: 50px;
+    margin: 70px auto 0;
+}
+
+.line_a {
+    margin-right: 225px;
+    margin-top: 20px;
+}
+
+.line_a a {
+    float: right;
+}
+
+#submit {
+    display: block;
+    margin: 80px auto 0;
+    width: 350px;
+    height: 50px;
+    border-radius: 6px;
+    background-color: #00a4ff;
+    color: #fff;
+    border-style: none;
+    font-size: 22px;
+}
+
+.company {
+    display: block;
+    margin: 20px auto 0;
+    width: 350px;
+    height: 50px;
+    border-radius: 6px;
+    background-color: #909399;
+    color: #e9e9eb;
+    border-style: none;
+    font-size: 22px;
+}

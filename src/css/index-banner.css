@@ -1,0 +1,139 @@
+
+.banner {
+    height: 420px;
+    background-color: #00a4ff;
+}
+
+/*左侧导航栏*/
+.subnav {
+    float: left;
+    width: 190px;
+    padding-top: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.subnav ul li {
+    heigth: 45px;
+    line-height: 45px;
+    padding: 0 20px;
+}
+
+.subnav ul li a {
+    font-size: 15px;
+    color: #fff;
+}
+
+.subnav ul li a span {
+    float: right;
+}
+
+.subnav ul li a:hover {
+    color: #79bbff;
+}
+
+/*轮播图*/
+.swiper {
+    position: relative;
+    float: left;
+    width: 730px;
+    height: 420px;
+    background-color: #9bceea;
+}
+
+.swiper-item {
+    width: 580px;
+    height: 300px;
+    margin: 60px auto;
+    background-color: orangered;
+}
+
+.swiper img {
+    width: 580px;
+    height: 300px;
+}
+
+.swiper-page {
+    position: absolute;
+    right: 75px;
+    bottom: 60px;
+    width: 580px;
+    background: rgba(0, 0, 0, .3);
+}
+
+.swiper-page ul {
+    float: right;
+}
+
+.swiper-page ul li {
+    list-style: none;
+    float: left;
+    width: 30px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    color: rgba(255, 255, 255, .8);
+    font-size: 14px;
+}
+
+.swiper-page ul li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: rgba(255, 255, 255, .8);
+}
+
+.swiper-page ul li a:hover {
+    color: #ff6700;
+    background: rgba(0, 0, 0, .5);
+}
+
+/*右侧热投榜*/
+.rankList {
+    float: right;
+    width: 230px;
+    height: 300px;
+    margin-top: 50px;
+    background-color: #fff;
+}
+
+.rankList h2 {
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    font-size: 18px;
+    margin: 0 auto;
+    background-color: #9bceea;
+    color: #fff;
+}
+
+.rankList-bd {
+    padding: 0 18px;
+}
+
+.rankList-bd ul li {
+    padding: 14px 0px;
+    border-bottom: 1px solid #efefef;
+}
+
+.rankList-bd ul li h4 {
+    font-size: 16px;
+    color: #4e4e4e;
+}
+
+.rankList-bd ul li p {
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+.rankList-bd .more {
+    display: block;
+    height: 38px;
+    border: 1px solid #00a4ff;
+    margin-top: 5px;
+    text-align: center;
+    line-height: 38px;
+    color: #00a4ff;
+    font-size: 16px;
+    font-weight: 700;
+}
