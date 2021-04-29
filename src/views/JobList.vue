@@ -11,7 +11,8 @@
               <span class="final">一站满足你的招聘需求</span>
             </div>
             <div class="campus-search">
-              <input type="text" placeholder="输入公司名称进行搜索"></input>
+              <input type="text" placeholder="输入公司名称进行搜索" v-model="companyName"
+                     @keyup.enter="searchCompany(companyName)"></input>
               <i class="btn-search"></i>
             </div>
           </div>
@@ -30,6 +31,7 @@
                 </div>
               </div>
               <div class="main-compamy">
+                <h2 v-if="isNull">抱歉...未找到相关信息\-_-\</h2>
                 <ul class="companyList clearfix">
 <!--                  卡片整体-->
                   <li class="card" v-for="item in companyCard">
@@ -120,7 +122,9 @@
                   isNew:'',
                   tag:[],
                   account:''
-                }]
+                }],
+                companyName:'',
+                isNull:false
             }
         },
       methods:{
@@ -135,23 +139,40 @@
           let _this = this
           this.$axios.get('/api/init/companyListCard/'+_this.jobkind).then(res=>{
             console.log(res)
-            let len = res.data.length;
+             _this.companyCard = res.data
+             for (let i = 0; i<_this.companyCard.length;i++){
+               _this.companyCard[i].tag = _this.companyCard[i].tag.split("||")
+             }
+             console.log('companyCard is :')
+             console.log(_this.companyCard)
+            let len = _this.companyCard.length;
+             if (len === 0)
+               _this.isNull = true
+            else
+              _this.isNull = false
+          })
+        },
+        searchCompany(name){
+          let _this = this
+          this.$axios.get('/api/search/companyListCard/'+name).then(res => {
+            console.log(res)
             _this.companyCard = res.data
             for (let i = 0; i<_this.companyCard.length;i++){
               _this.companyCard[i].tag = _this.companyCard[i].tag.split("||")
             }
             console.log('companyCard is :')
             console.log(_this.companyCard)
+            let len = _this.companyCard.length;
+            if (len === 0)
+              _this.isNull = true
+            else
+              _this.isNull = false
           })
-        },
-      //  更改标签选中样式
-        isSelect(item) {
-
         }
       },
         created() {
           let _this = this;
-            this.jobkind = this.$route.params.jobkind;
+            this.jobkind = 'all';
             if(this.jobkind === 'all'){
               this.$axios.get('/api/init/companyListCard/'+_this.jobkind).then(res=>{
                 console.log(res)

@@ -56,7 +56,7 @@
                     route: '/'
                 }, {
                     name: '求职',
-                    route: '/joblist?jobkind=all'
+                    route: '/joblist'
                 }, {
                     name: '笔试',
                     route: '/exam'
