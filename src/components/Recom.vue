@@ -3,9 +3,9 @@
         <h3>感兴趣的职位</h3>
         <ul>
             <li v-for="item in jobkind"><span>|</span>
-                <router-link :to="{path:'/',query:{jobkind: item}}" @click="console.log('点击了'+item)">
+                <a style="cursor: pointer" @click="setTag(item)">
                     {{item}}
-                </router-link>
+                </a>
             </li>
         </ul>
     </div>
@@ -18,19 +18,23 @@
             return {
                 checked: false,
                 jobkind: [
-                    '前端开发',
-                    'Java开发',
-                    '安卓开发',
-                    'IOS开发',
-                    '软件测试',
+                    'WEB',
+                    'Java',
+                    'Android',
+                    'IOS',
+                    '测试',
                     'UI设计',
-                    '实施工程师',
-                    '产品经理',
-                    '项目经理'
+                    '算法',
+                    '嵌入式',
+                    '通信'
                 ]
             }
         },
-        methods: {}
+        methods: {
+          setTag(tag){
+            this.$emit('transferTag',tag)
+          }
+        }
     }
 </script>
 
@@ -71,7 +75,7 @@
   display: inline-block;
   height: 35px;
   line-height: 35px;
-  padding: 0 3px;
+  padding: 0 10px;
   margin-left: 20px;
   font-size: 16px;
   border: 1px solid #409eff;

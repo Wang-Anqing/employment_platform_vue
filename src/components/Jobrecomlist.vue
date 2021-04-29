@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- 职位推荐详情页 -->
+        <!-- 职位推荐部分 -->
         <div class="box w">
             <div class="box-hd">
                 <h3>职位推荐</h3>
@@ -44,6 +44,18 @@
                 newSrc: require('../imgs/new.png')
             }
         },
+      props:['tag'],
+      watch:{
+        tag(newVal,oldVal){
+          console.log('newVal is '+ newVal)
+          console.log('oldVal is '+ oldVal)
+          let _this = this;
+          axios.get('/api/search/recomCard/'+newVal).then(res =>{
+            _this.recomJobList = res.data
+            console.log(res)
+          })
+        }
+      },
       created() {
         let _this = this;
         axios.get('/api/init/recomCard').then(res =>{

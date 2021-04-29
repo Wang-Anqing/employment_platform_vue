@@ -4,11 +4,11 @@
         <!--      header下面的banner模块-->
         <Bar></Bar>
         <!--      推荐模块-->
-        <Recom></Recom>
+        <Recom @transferTag="getTag"></Recom>
         <!--      广告模块-->
         <Ad></Ad>
         <!--      职位推荐详情-->
-        <Jobrecomlist></Jobrecomlist>
+        <Jobrecomlist :tag="tag"></Jobrecomlist>
         <!--      底部-->
         <Footerbox></Footerbox>
     </div>
@@ -33,25 +33,21 @@
         },
         data() {
             return {
-                recomjonkind: 'aaa'
+                recomjonkind: 'aaa',
+                tag:'all'
             }
         },
+      methods:{
+        getTag(msg){
+          this.tag = msg
+          console.log('tag is '+this.tag)
+        } ,
+      },
         created() {
-            this.recomjonkind = this.$route.query.jobkind;
-            const jobKind = this.recomjonkind;
-            if (jobKind === undefined) {
-                console.log('推荐了all')
-            } else {
-                console.log('刚才推荐了' + jobKind)
-            }
+
         },
         watch: {
-            $route(to, from) {
-                if (to.query.jobkind !== from.query.jobkind) {
-                    location.reload();
 
-                }
-            }
         }
     }
 </script>
