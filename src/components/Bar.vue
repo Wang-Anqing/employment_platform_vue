@@ -5,7 +5,7 @@
             <section class="subnav">
                 <ul>
                     <li v-for="item in subnavList">
-                        <router-link :to="{path:'/joblist',query:{jobkind: item.name}}">
+                        <router-link :to="{path:'/joblist',params:{jobkind: item.name}}">
                             <a href="">{{ item.name }}<span>&gt;</span></a>
                         </router-link>
                     </li>

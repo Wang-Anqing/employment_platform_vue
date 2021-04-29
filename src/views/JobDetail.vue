@@ -3,7 +3,7 @@
       <Header></Header>
       <div class="clearfix w">
 <!--         左侧公司信息-->
-        <div class="main">
+        <div class="main" style="float:left;">
           <div class="companyInfo">
             <h2>公司介绍</h2>
             <p>{{company.introduce}}</p>
@@ -19,7 +19,7 @@
 <!--          工作信息-->
           <div class="jobInfo">
             <el-collapse  accordion>
-              <el-collapse-item  v-for="item in job" :name=item.id style="width: 780px">
+              <el-collapse-item  v-for="item in job" :name=item.id style="width: 700px">
                 <template slot="title">
                   <h2>{{item.name}}</h2>
                   <div>

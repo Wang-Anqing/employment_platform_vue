@@ -16,43 +16,44 @@
             </div>
           </div>
 <!--          主体部分-->
-          <div class="main w clearfix">
+          <div class="card-main w clearfix">
             <h1>全部企业</h1>
 <!--            关键词部分-->
-            <div class="main-body">
-              <div class="main-keyword">
+            <div class="card-main-body">
+              <div class="card-main-keyword">
                 <div>
                   <span class="keyword-lable">关键词</span>
                   <div class="keyword-box clearfix">
-                    <a class="keyword" v-for="item in keyword">{{item}}</a>
+                    <a  v-for="(item,index) in keyword" v-bind:class="{keyword: true,selected:index===isSelected} "
+                        @click="selectJob(item,index)">{{item}}</a>
                   </div>
                 </div>
               </div>
               <div class="main-compamy">
                 <ul class="companyList clearfix">
 <!--                  卡片整体-->
-                  <li class="card">
+                  <li class="card" v-for="item in companyCard">
 <!--                    公司的logo-->
                     <a class="card-pic">
-                      <img >
+                      <img :src="item.logoSrc">
                     </a>
 <!--                    卡片主体-->
                     <div class="card-body">
 <!--                      公司名称-->
-                      <h2> </h2>
+                      <h2>{{item.name}}</h2>
 <!--                      hot或者new状态-->
                       <div class="card-state">
-                        <span></span>
-                        <span></span>
+                        <span v-if="item.isNew==='1'" class="iconfont icon-new" style="color: #e67e22;font-size: 20px"></span>
+                        <span v-if="item.isHot==='1'" class="iconfont icon-hot" style="color: #d63031;font-size: 20px"></span>
                       </div>
 <!--                      公司标签-->
                       <div class="card-tag">
-                        <a></a>
+                        <a v-for="tag0 in item.tag">{{tag0}}</a>
                       </div>
 <!--                      职位数量统计和投递按钮-->
                       <div class="job-info">
-                        <p> </p>
-                        <a class="act-btn">立即投递</a>
+                        <p>{{item.account}}个职位开放投递中</p>
+                        <router-link tag="a" class="act-btn" :to="{path:'/jobdetail',query:{id: item.id}}" >立即投递</router-link>
                       </div>
                     </div>
                   </li>
@@ -74,6 +75,7 @@
       components: {Footerbox},
       data() {
             return {
+              isSelected: 0,
                 jobkind: '',
                 keyword:[
                     '全部',
@@ -109,12 +111,59 @@
                     '硬件',
                     '会计事务所',
                     '军工企业'
-                ]
+                ],
+                companyCard:[{
+                  id:'',
+                  name:'',
+                  logoSrc:'',
+                  isHot:'',
+                  isNew:'',
+                  tag:[],
+                  account:''
+                }]
             }
         },
+      methods:{
+        //  选中标签，更新页面内容
+        selectJob(keyword,index){
+          this.isSelected = index
+          if (keyword === '全部'){
+            this.jobkind = 'all'
+          }else {
+            this.jobkind = keyword
+          }
+          let _this = this
+          this.$axios.get('/api/init/companyListCard/'+_this.jobkind).then(res=>{
+            console.log(res)
+            let len = res.data.length;
+            _this.companyCard = res.data
+            for (let i = 0; i<_this.companyCard.length;i++){
+              _this.companyCard[i].tag = _this.companyCard[i].tag.split("||")
+            }
+            console.log('companyCard is :')
+            console.log(_this.companyCard)
+          })
+        },
+      //  更改标签选中样式
+        isSelect(item) {
+
+        }
+      },
         created() {
-            this.jobkind = this.$route.query.jobkind;
-            console.log('当前页面为' + this.jobkind)
+          let _this = this;
+            this.jobkind = this.$route.params.jobkind;
+            if(this.jobkind === 'all'){
+              this.$axios.get('/api/init/companyListCard/'+_this.jobkind).then(res=>{
+                console.log(res)
+                let len = res.data.length;
+                _this.companyCard = res.data
+                for (let i = 0; i<_this.companyCard.length;i++){
+                  _this.companyCard[i].tag = _this.companyCard[i].tag.split("||")
+                }
+                console.log('companyCard is :')
+                console.log(_this.companyCard)
+              })
+            }
         }
     }
 </script>
@@ -122,4 +171,5 @@
 <style scoped>
 @import "../css/joblist.css";
 @import "../css/common.css";
+@import "../icon-font/font_rgs7j50c23/iconfont.css";
 </style>

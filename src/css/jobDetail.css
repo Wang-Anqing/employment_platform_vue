@@ -16,8 +16,9 @@
     width: 760px;
 }
 .companyInfo {
+    float: left;
     display: inline-block;
-    width: 760px;
+    width: 700px;
     margin-top: 20px;
     padding: 10px;
     background-color: #fff;
@@ -45,7 +46,7 @@
 }
 .jobInfo {
     float: left;
-    width: 780px;
+    width: 700px;
     margin-top: 20px;
 }
 .jobInfo h2 {

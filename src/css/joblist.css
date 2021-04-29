@@ -60,7 +60,7 @@
     top: 7px;
     right: 10px;
 }
-.main {
+.card-main {
     width: 1200px;
     margin-top: 20px;
     background-color: #fff;
@@ -68,14 +68,14 @@
     border-radius: 3px;
     padding: 20px;
 }
-.main h1 {
+.card-main h1 {
+    float: left;
     font-size: 16px;
     line-height: 16px;
-    float: left;
     font-weight: 600;
     white-space: nowrap;
 }
-.main h1::before {
+.card-main h1::before {
     background-color: #00a4ff;
     content: "";
     display: inline-block;
@@ -85,19 +85,19 @@
     margin-bottom: 2px;
     vertical-align: middle;
 }
-.main-body {
+.card-main-body {
     padding: 20px;
 }
-.main-keyword {
+.card-main-keyword {
     height: 170px;
     background: #f5f5f5;
     padding: 15px 15px 0;
     margin-bottom: 20px;
 }
-.main-keyword>div {
+.card-main-keyword>div {
     margin-bottom: 10px;
 }
-.main-keyword>div .keyword-lable {
+.card-main-keyword>div .keyword-lable {
     float: left;
     width: 70px;
     padding: 0 10px;
@@ -122,7 +122,7 @@
     font-size: 14px;
     cursor: pointer;
 }
-.keyword .select{
+.selected{
     background-color: #00a4ff;
     color: #fff;
     text-align: center;
@@ -135,7 +135,6 @@
     display: block;
     color: #888;
     font-size: 14px;
-    /*text-align: left;*/
 }
 .companyList .card {
     position: relative;
@@ -147,6 +146,8 @@
 .card-pic {
     position: absolute;
     display: inline-block;
+    left: 50px;
+    top: -17px;
     border-radius: 50%;
     width: 80px;
     height: 80px;
@@ -155,13 +156,14 @@
     z-index: 2;
 }
 .card-pic img {
-    width: 100%;vertical-align: middle;
+    width: 100%;
+    vertical-align: middle;
 }
 .card-body {
     width: 180px;
-    height: 180px;
+    height: 250px;
     text-align: center;
-    margin-top: -45px;
+    margin-top: 20px;
     padding:50px 20px 15px;
     overflow: hidden;
     background-color: #fff;
@@ -202,6 +204,12 @@
     margin-bottom: 5px;
     background-color: #fff;
     line-height: 16px;
+    cursor: pointer;
+}
+.card-tag a:hover {
+    background-color: #00a4ff;
+    color: #fff;
+    border: none;
 }
 .job-info {
     position: absolute;
