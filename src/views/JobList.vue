@@ -192,5 +192,5 @@
 <style scoped>
 @import "../css/joblist.css";
 @import "../css/common.css";
-@import "../icon-font/font_rgs7j50c23/iconfont.css";
+@import "../icon-font/font_jobList/iconfont.css";
 </style>

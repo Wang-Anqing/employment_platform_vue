@@ -1,0 +1,30 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1810019",
+      "name": "第一",
+      "font_class": "diyi",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "8903399",
+      "name": "第三",
+      "font_class": "socar_Third_icon",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "13150513",
+      "name": "第二",
+      "font_class": "dier",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    }
+  ]
+}

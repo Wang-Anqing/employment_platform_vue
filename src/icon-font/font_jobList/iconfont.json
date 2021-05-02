@@ -1,0 +1,23 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8358908",
+      "name": "new3",
+      "font_class": "new",
+      "unicode": "e6a8",
+      "unicode_decimal": 59048
+    },
+    {
+      "icon_id": "9358676",
+      "name": "hot",
+      "font_class": "hot",
+      "unicode": "e555",
+      "unicode_decimal": 58709
+    }
+  ]
+}

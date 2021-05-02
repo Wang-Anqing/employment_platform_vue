@@ -1,0 +1,29 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1619696498733'); /* IE9 */
+  src: url('iconfont.eot?t=1619696498733#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAQUAAsAAAAACMwAAAPFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDHAqFCIQuATYCJAMQCwoABCAFhG0HSBugB8gekiQQ4gcKAH4AB00TD8+vfTt33hvZ+auIeHRNJtk8VIhmCaKGTKKbNbUS9jC3moKHPfWsqpSSQpEtl+bcv+7yEn/TgAj6//845utSy4b5bDbSmVRSNFVb6Wg3Go9bB1ZRwpvIzuuL+H+IG+zVpeMJtCYIw60vKKsDg0yvFoiTkpUHQ0IhVwSGRqgK2mZxDbSa4rzqNoCr3vPjP8REQ6FM9LrbDudbIOuX5usC9XQPbQ4CeMPpwHYiYR6QiaOFhv3UgXsetVYurLEQaDQKhsrBXxd4TvhbkTbGvzxCIREVXdpNsPM9iV8ai0HwCzMo+LVAISE6y5vO3lcAMQSxwyTZCBtnqNsx+nqG90emyM9ecejuM67n7jUj0NkX9XvO+APa1WsPiof3Gg89azS9e1xETe+fZN98yqN067gf9zTT1EJST+N23Il72sgio79T3KP4LaG7hj6rQ9G5yM1Ah5O4p/nHkpfsgel1T2DFbr/jBZcLxr9//Yxh+yrvDTrHrRq6Ey0cvBjQucpT8YuewPSw7Ullx/ub3D+4w39P3rmTCw0NfXZoi5I7T13Yn7/b98ClhsRZ5j3V5qFmJ9YntSyoC33a252vvmO+myzMzu1xJuRxrybh3prVxX1fffTOvHAhshfiTv+9yIn97NYWG/advHCgYI+PsX6SMFvYW4dNZydct61LOTnoQp76Nn+v2CKTQh97it55zaTEjR/uj/Yx2nwcBs7pZ8mJyTivJPbO+rNgXP/s6mFt/Sv0i8Pf0aiwpRKEPTWszUrMv/37J1Fv277nf1MCdV/VwwO+TfOtaWFN97NqCjOjrq71i0vpPl4KVQCDkifxXsEh+Hns3+POXsv/Z8rgw/7TFEyDMjTnfV+ezPsj8BpGZUWgK3OWhBZXNWZbYtwhAlotPr+fId6ifHhjJ6FJ8Fgo1MZD0piGzNh5UOqYD5XGKmjNVdi5YyhKLXIX5pgDEPrtg0Kvx5D0u4PM2DdQGuE7VPojQWtPDO2zY0YcQ+so4RmxYPMELAlyt2iqGfIDa4h1jJOncYFHbiBUkWw4OiIq7Ssk3YQO0UAZa41hTMQilV24ACYjTqeM3VS2E4FF2Bhzp0RGikUnihBkFyDrUASPISwwswkwiUDWTXQSMyjz+BqE1RhOPFoRUWZuQFAKKX8sWoSoBshCaXejiEvZRDGWVQyGEWEiSuaCFYCOcBpuGeYuLmVHCJgItg5OtxSRJJbYVBoxvdx1h5OgpS+Vo4gUOUr5oDRB6q3IAk8762wStXSeBLvARCgAAAAA') format('woff2'),
+  url('iconfont.woff?t=1619696498733') format('woff'),
+  url('iconfont.ttf?t=1619696498733') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1619696498733#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-diyi:before {
+  content: "\e604";
+}
+
+.icon-socar_Third_icon:before {
+  content: "\e620";
+}
+
+.icon-dier:before {
+  content: "\e689";
+}
+
