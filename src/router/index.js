@@ -94,6 +94,14 @@ const routes = [
             requireAuth: true//配置拦截
 
         }
+    },{
+        path: '/resume',
+        name: 'resume',
+        component: ()=>import('../views/Resume'),
+        meta: {
+            requireAuth: true//配置拦截
+
+        }
     }
 ]
 

@@ -1,0 +1,74 @@
+/*简历编辑界面*/
+.edit {
+    float: left;
+    display: inline-block;
+    width: 580px;
+    height: 700px;
+    margin: 25px auto;
+    margin-right: 40px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-top: 1px solid transparent;
+}
+.edit-head {
+    height: 50px;
+    border-bottom: 1px solid #a3a3a3;display: block;
+    margin-left: 0;
+    margin-bottom: 5px;
+}
+.edit-body {
+    margin-top: 10px;
+}
+.edit-head .back {
+    width: 70px;
+    height: 30px;
+    float: left;
+    line-height: 30px;
+    cursor: pointer;
+}
+.edit-head h3 {
+    display: inline-block;
+}
+.edit-head .save {
+    width: 70px;
+    height: 30px;
+    float: right;
+    color: #00a4ff;
+    line-height: 30px;
+    border: 1px solid #00a4ff;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.box1 {
+    display: inline-block;
+    width: 550px;
+    height: 70px;
+    margin: 10px auto;
+}
+.box1 span {
+    float: left;
+    margin-bottom: 5px;
+}
+.box2 {
+    float: left;
+    display: inline-block;
+    width: 270px;
+    height: 70px;
+    margin: 10px auto;
+}
+.box2 span {
+    float: left;
+    margin-bottom: 5px;
+}
+.box3 {
+    float: right;
+    display: inline-block;
+    width: 270px;
+    height: 70px;
+    margin: 10px auto;
+}
+.box3 span {
+    float: left;
+    margin-bottom: 5px;
+}

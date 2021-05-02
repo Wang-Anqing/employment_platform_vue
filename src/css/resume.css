@@ -1,0 +1,57 @@
+/*简历战术界面*/
+.resume {
+    display: inline-block;
+    width: 580px;
+    height: 700px;
+    margin: 25px auto;
+    padding: 15px;
+    background-color: #ffffff;
+    border-top: 1px solid transparent;
+}
+.resume-head {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+}
+.resume-head:hover {
+    cursor: pointer;
+    background-color: #f9f9f9;
+}
+.resume-head h3 {
+    margin-bottom: 5px;
+}
+.resume-head span {
+    font-size: 12px;
+}
+.resume-photo {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.baseInfo {
+    display: block;
+    width: 100%;
+    padding: 0 180px;
+}
+.baseInfo li{
+    /*float: left;*/
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
+    font-size: 10px;
+}
+.baseInfo li:nth-child(3n+1){
+    clear: both;
+}
+.baseInfo li span {
+    display: inline-block;
+    margin-right: 6px;
+    margin-left: 2px;
+    width: 1px;
+    height: 14px;
+}
+.baseInfo li:nth-child(3n) span{
+    display: none;
+}

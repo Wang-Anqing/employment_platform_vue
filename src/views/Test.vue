@@ -1,7 +1,12 @@
 <template>
-  <el-tooltip class="item" effect="dark" content="Bottom Left 提示文字" placement="bottom-start" v-if="false">
-    <el-button>下左</el-button>
-  </el-tooltip>
+  <div>
+    <div class="left" v-if="view">
+
+    </div>
+    <div class="right" @click="changeView">
+
+    </div>
+  </div>
 </template>
 
 <script>
@@ -9,27 +14,35 @@
         name: "Test",
         data() {
             return {
-                tableItem: []
+                view:false
             };
         },
         methods: {
-            deleteItem(index) {
-                console.log(this.tableItem[index].manAutoid)
-            },
+          changeView(){
+            this.view = !this.view
+          }
         },
-        created() {
-            //这里的this指的是vue对象，而回调函数里的this指的是回调函数
-            let _this = this;
-            axios.get('/api/manager/list').then(res => {
-                _this.tableItem = res.data
-                console.log(res)
-                console.log('res里manAutoId为：' + res.data[0].manAutoid)
-                console.log('res里manAutoId为：' + res.data[0].manAccount)
-            })
-        }
+
     }
 </script>
 
 <style scoped>
-
+*{
+  padding:0;
+  margin: 0;
+}
+.left{
+  display: inline-block;
+  width: 600px;
+  height: 300px;
+  margin-right: 100px;
+  background-color: red;
+}
+.right {
+  display: inline-block;
+  width: 600px;
+  height: 300px;
+  margin: 0 auto;
+  background-color: #9bceea;
+}
 </style>
