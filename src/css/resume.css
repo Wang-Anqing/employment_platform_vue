@@ -1,13 +1,16 @@
-/*简历战术界面*/
+/*简历展示界面*/
 .resume {
     display: inline-block;
     width: 580px;
-    height: 700px;
+    height: auto;
+    /*width: 210mm;*/
+    /*height: 270mm;*/
     margin: 25px auto;
     padding: 15px;
     background-color: #ffffff;
     border-top: 1px solid transparent;
 }
+/*简历头部的基本信息*/
 .resume-head {
     position: relative;
     width: 100%;
@@ -24,34 +27,127 @@
 .resume-head span {
     font-size: 12px;
 }
-.resume-photo {
+.img-box {
     position: absolute;
+    width: 80px;
+    height: 96px;
     right: 0;
     top: 0;
+    border: 1px solid #868686;
 }
-.baseInfo {
-    display: block;
+.baseInfo .baseInfo-line {
     width: 100%;
-    padding: 0 180px;
-}
-.baseInfo li{
-    /*float: left;*/
-    display: inline-block;
+    height: 18px;
+    line-height: 18px;
     text-align: center;
-    vertical-align: middle;
+    margin-bottom: 3px;
+}
+.span1{
+    margin: 0 2px;
+}
+
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+}
+.avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+}
+.avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 80px;
+    height: 96px;
+    line-height: 96px;
+    text-align: center;
+}
+.avatar {
+    width: 80px;
+    height: 96px;
+    display: block;
+}
+
+.resume-item {
+    position: relative;
+    width: 100%;
     margin: 0 auto;
-    font-size: 10px;
+    padding: 5px;
 }
-.baseInfo li:nth-child(3n+1){
-    clear: both;
+.resume-item:hover {
+    cursor: pointer;
+    background-color: #f9f9f9;
 }
-.baseInfo li span {
-    display: inline-block;
-    margin-right: 6px;
-    margin-left: 2px;
-    width: 1px;
-    height: 14px;
+.h5-tag {
+    font-size: 15px;
+    text-align: left;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
 }
-.baseInfo li:nth-child(3n) span{
-    display: none;
+.school {
+    text-align: left;
+    margin-bottom: 5px;
+}
+/*教育经历部分*/
+.school-info span {
+    float: left;
+    font-size: 12px;
+    margin-right: 5px;
+}
+/*将全局重置的ul ol 样式恢复*/
+.school-exp {
+    padding: 0;
+    margin: 0;
+}
+.school-exp p {
+    font-size: 12px;
+}
+.school-exp ul {
+    list-style-type: disc;
+    margin: 0;
+    padding: 0;
+}
+.school-exp ol {
+    list-style-type: decimal;
+    margin: 0;
+    padding: 0;
+}
+.school-exp li {
+    margin: 0;
+    padding: 0;
+    list-style: inherit;
+    font-size: 12px;
+}
+
+/*将全局重置的ul ol 样式恢复*/
+.skill {
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+}
+.skill p {
+    font-size: 12px;
+}
+.skill ul {
+    list-style-type: disc;
+    margin: 0;
+    padding: 0;
+}
+.skill ol {
+    list-style-type: decimal;
+    margin: 0;
+    padding: 0;
+}
+.skill li {
+    margin: 0;
+    padding: 0;
+    list-style: inherit;
+    font-size: 12px;
 }

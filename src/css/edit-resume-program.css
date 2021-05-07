@@ -39,17 +39,6 @@
     border-radius: 15px;
     cursor: pointer;
 }
-
-.box1 {
-    display: inline-block;
-    width: 550px;
-    height: 70px;
-    margin: 10px auto;
-}
-.box1 span {
-    float: left;
-    margin-bottom: 5px;
-}
 .box2 {
     float: left;
     display: inline-block;

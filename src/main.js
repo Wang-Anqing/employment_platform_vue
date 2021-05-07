@@ -10,11 +10,14 @@ import Header from "@/components/Header";
 import VueSession from "vue-session/index.esm";
 import VueCookies from "vue-cookies";
 import Moment from 'moment';
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 
 Vue.use(VueSession)
 Vue.use(VueCookies)
 Vue.use(Vuex)
 Vue.use(Moment);
+Vue.use(mavonEditor)
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);

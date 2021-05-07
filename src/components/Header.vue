@@ -32,10 +32,10 @@
                 v-if="this.$store.state.login_state"
             >
               <ul class="personNav">
-                <li v-for="item in headNavItem">
+                <router-link tag="li" :to="item.route" v-for="item in headNavItem">
                   <i :class="item.icon" :style="item.color"></i>
                   <span>{{item.name}}</span>
-                </li>
+                </router-link>
                 <el-button type="danger" style="width: 270px;margin-top: 10px;" @click="logOut">退出登录</el-button>
               </ul>
 
@@ -76,7 +76,7 @@
                   icon: 'el-icon-s-order',
                   name: '我的简历',
                   color:'color:#a9da70',
-                  route: ''
+                  route: '/resume'
                 },
                   {
                     icon:'el-icon-edit',

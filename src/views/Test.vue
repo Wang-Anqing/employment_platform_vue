@@ -1,11 +1,6 @@
 <template>
   <div>
-    <div class="left" v-if="view">
-
-    </div>
-    <div class="right" @click="changeView">
-
-    </div>
+    <button @click="getfloderID">获取文件夹ID</button>
   </div>
 </template>
 
@@ -18,8 +13,13 @@
             };
         },
         methods: {
-          changeView(){
-            this.view = !this.view
+          getfloderID(){
+            this.$axios.post('https://www.hualigs.cn/api/folderList',{
+              token:' bd72c92dc223c3d3128d674eb3f70625 '
+            }).then(res => {
+              console.log('请求成功')
+              console.log(res)
+            })
           }
         },
 
@@ -27,22 +27,10 @@
 </script>
 
 <style scoped>
-*{
-  padding:0;
-  margin: 0;
-}
-.left{
-  display: inline-block;
-  width: 600px;
-  height: 300px;
-  margin-right: 100px;
-  background-color: red;
-}
-.right {
-  display: inline-block;
-  width: 600px;
-  height: 300px;
-  margin: 0 auto;
-  background-color: #9bceea;
+button {
+  display: block;
+  width: 120px;
+  height: 50px;
+  margin: 20px auto;
 }
 </style>
