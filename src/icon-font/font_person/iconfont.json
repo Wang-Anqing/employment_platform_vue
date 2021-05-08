@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5179012",
+      "name": "认证",
+      "font_class": "renzheng",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "5312461",
+      "name": "学校",
+      "font_class": "xuexiao",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "6360371",
+      "name": "地区",
+      "font_class": "diqu",
+      "unicode": "e790",
+      "unicode_decimal": 59280
+    },
+    {
+      "icon_id": "9864711",
+      "name": "公司",
+      "font_class": "gongsi",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    }
+  ]
+}

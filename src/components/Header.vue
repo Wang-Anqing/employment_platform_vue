@@ -80,7 +80,7 @@
                 },
                   {
                     icon:'el-icon-edit',
-                    name:'刷题',
+                    name:'投递记录',
                     color:'color:#eeb53a',
                     route: ''
                   },

@@ -97,6 +97,8 @@ export default {
         this.$store.commit('editEduShow')
       }
       console.log(this.$store.state.EduInfo.schoolExp)
+      // console.log('schoolExp3-express is :')
+      // console.log(sessionStorage.getItem('schoolExp3-express'))
     }
   }
 }

@@ -78,15 +78,7 @@ const routes = [
             requireAuth: true//配置拦截
 
         }
-    }, {
-        path: '/test',
-        name: 'Test',
-        component: () => import('../views/Test.vue'),
-        meta: {
-            requireAuth: true//配置拦截
-
-        }
-    }, {
+    },  {
         path: '/company',
         name: 'CompanyIndex',
         component: () => import('../views/company/CompanyIndex'),
@@ -98,6 +90,22 @@ const routes = [
         path: '/resume',
         name: 'resume',
         component: ()=>import('../views/Resume'),
+        meta: {
+            requireAuth: true//配置拦截
+
+        }
+    },{
+        path: '/editPerson',
+        mame:'EditPerson',
+        component: () => import('../views/EditPerson'),
+        meta: {
+            requireAuth: true//配置拦截
+
+        }
+    },{
+        path: '/test',
+        name: 'Test',
+        component: () => import('../views/Test.vue'),
         meta: {
             requireAuth: true//配置拦截
 

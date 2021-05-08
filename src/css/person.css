@@ -1,0 +1,79 @@
+.person-top {
+    position: relative;
+    width: 1200px;
+    height: 100px;
+    background-image: url("../imgs/person-bg.png");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+}
+.person-title {
+    position: absolute;
+    left: 15px;
+    top: 25px;
+    color: #f3f4f5;
+}
+.person-header {
+    position: absolute;
+    top: 50px;
+    left: 550px;
+    width: 100px;
+    height: 100px;
+}
+.person-header img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.person-name {
+    margin-top: 50px;
+}
+.person-edit {
+    position: absolute;
+    right: 20px;
+    top: 120px;
+}
+.person-qualify {
+    position: absolute;
+    right: 20px;
+    top: 190px;
+}
+.info-tag {
+    width: 700px;
+    margin: 10px auto;
+    /*background-color: red;*/
+}
+.info-tag li {
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    margin-right: 10px;
+}
+.person-nav {
+    width: 500px;
+    height: 130px;
+    margin: 10px auto;
+    /*border-bottom: 1px solid #a3a3a3;*/
+}
+.person-nav li {
+    display: inline-block;
+    width: 90px;
+    height: 85px;
+    margin-right: 20px;
+}
+.person-nav li:hover{
+    background-color: #f3f4f5;
+}
+.person-nav li i{
+    font-style: normal;
+    display: block;
+    font-size: 50px;
+    width: 50px;
+    height: 50px;
+    margin: 2px auto;
+}
+.person-nav li span {
+    display: block;
+    width: 90px;
+    margin: 2px auto;
+}
