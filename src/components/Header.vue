@@ -58,9 +58,6 @@
                     name: '求职',
                     route: '/joblist'
                 }, {
-                    name: '笔试',
-                    route: '/exam'
-                }, {
                     name: '讨论区',
                     route: '/discuss'
                 }, {

@@ -50,6 +50,7 @@
                 this.$router.push('/company')
             },
             login(){
+              //获取并验证登录信息
               this.$axios.defaults.withCredentials=true;
               this.$axios.post('/api/login/jobseeker',{
                 email: this.email,
@@ -62,12 +63,25 @@
                   message: '登录成功',
                   type: 'success'
                 });
+
+                //初始化简历信息
+                this.$axios.post('/api/resume/getList',{
+                  jobseekerId: JSON.parse(this.$store.state.jobseeker).id
+                }).then( res => {
+                  console.log('获取简历的id为：'+JSON.parse(this.$store.state.jobseeker).id)
+                  sessionStorage.setItem('resumeList',JSON.stringify(res.data))
+                  this.$store.state.resume = JSON.parse(sessionStorage.getItem('resumeList'))
+                  console.log('resumeList is :')
+                  console.log(res.data)
+                });
+
                 //登陆成功，跳回首页
                 this.$router.push({path:"/"});
               }).catch(error => {
                 // alert("在 catch 中")
                 this.$message.error('用户名或密码错误')
               })
+
           },
           cleanPassword(event){
               event.currentTarget.select()

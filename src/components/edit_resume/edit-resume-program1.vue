@@ -1,19 +1,28 @@
 <template>
   <div class="edit">
     <div class="edit-head clearfix">
-      <a class="back" @click="goBack"><&nbsp;返回</a>
+      <el-popconfirm
+          confirm-button-text='确认返回'
+          cancel-button-text='点错了'
+          icon="el-icon-info"
+          icon-color="red"
+          title="返回将不保存修改，请问是否返回？"
+          @confirm="goBack"
+      >
+        <a class="back" slot="reference"><&nbsp;返回</a>
+      </el-popconfirm>
       <h3>项目经历</h3>
       <a class="save" @click="save">保存</a>
     </div>
     <div class="edit-body clearfix">
       <section class="box2">
         <span>项目名称</span>
-        <el-input  placeholder="请输入" v-model="$store.state.Program1.name"
+        <el-input  placeholder="请输入" v-model="$store.state.previewResume.program2Name"
         ></el-input>
       </section>
       <section class="box3">
         <span>你的角色</span>
-        <el-input  placeholder="请输入" v-model="$store.state.Program1.role"
+        <el-input  placeholder="请输入" v-model="$store.state.previewResume.program2Role"
         ></el-input>
       </section>
       <section>
@@ -21,7 +30,7 @@
         <mavon-editor :toolbars="toolbars"
                       style="margin-top: 5px;"
                       placeholder="请说明你在项目中，做出了哪些贡献，完成了哪些功能，以及大致描述一下解决的问题"
-                      v-model="$store.state.Program1.express"
+                      v-model="$store.state.previewResume.program2Express"
                       defaultOpen="edit"></mavon-editor>
       </section>
     </div>
@@ -33,6 +42,12 @@ export default {
   name: "edit-resume-program1",
   data(){
     return {
+      //修改前的简历信息
+      oldValue: {
+        program2Name:'',
+        program2Role:'',
+        program2Express:''
+      },
       isFull:'',
       //md工具栏选项
       toolbars: {
@@ -53,30 +68,22 @@ export default {
       //先将组件隐藏掉
       this.$store.commit('editProgram1Show')
       //清除填写的信息
-      this.$store.commit('cleanProgram1')
+      this.$store.state.previewResume.program2Name = this.oldValue.program2Name
+      this.$store.state.previewResume.program2Role = this.oldValue.program2Role
+      this.$store.state.previewResume.program2Express = this.oldValue.program2Express
     },
     //将填写好的模块暂时保存在session中
     save() {
-      for (let key in this.$store.state.Program1) {
-        if (this.$store.state.Program1[key] === ''){
-          this.isFull = false
-          this.$message({
-            message: '内容未填写完整！！！',
-            type: 'warning'
-          });
-          break
-        }else {
-          this.isFull = true
-        }
-      }
-      if (this.isFull){
-        sessionStorage.setItem('program1-name',this.$store.state.Program1.name)
-        sessionStorage.setItem('program1-role',this.$store.state.Program1.role)
-        sessionStorage.setItem('program1-express',this.$store.state.Program1.express)
-        //将组件隐藏掉
-        this.$store.commit('editProgram1Show')
-      }
+      //将修改内容存入session
+      sessionStorage.setItem('previewResume',JSON.stringify(this.$store.state.previewResume))
+      //将组件隐藏掉
+      this.$store.commit('editProgram1Show')
     }
+  },
+  created() {
+    this.oldValue.program2Name = this.$store.state.previewResume.program2Name
+    this.oldValue.program2Role = this.$store.state.previewResume.program2Role
+    this.oldValue.program2Express = this.$store.state.previewResume.program2Express
   }
 }
 </script>

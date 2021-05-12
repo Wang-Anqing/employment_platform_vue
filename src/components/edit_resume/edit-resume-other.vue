@@ -1,7 +1,16 @@
 <template>
   <div class="edit">
     <div class="edit-head clearfix">
-      <a class="back" @click="goBack"><&nbsp;返回</a>
+      <el-popconfirm
+          confirm-button-text='确认返回'
+          cancel-button-text='点错了'
+          icon="el-icon-info"
+          icon-color="red"
+          title="返回将不保存修改，请问是否返回？"
+          @confirm="goBack"
+      >
+        <a class="back" slot="reference"><&nbsp;返回</a>
+      </el-popconfirm>
       <h3>其他</h3>
       <a class="save" @click="save">保存</a>
     </div>
@@ -11,7 +20,7 @@
         <mavon-editor :toolbars="toolbars"
                       style="margin-top: 5px;"
                       placeholder="例如：四六级成绩、各种证书或其他荣誉"
-                      v-model="$store.state.Other"
+                      v-model="$store.state.previewResume.others"
                       defaultOpen="edit"></mavon-editor>
       </section>
     </div>
@@ -23,6 +32,10 @@ export default {
   name: "edit-resume-other",
   data(){
     return {
+      //修改前简历信息
+      oldValue: {
+        others:''
+      },
       isFull:'',
       //md工具栏选项
       toolbars: {
@@ -42,26 +55,18 @@ export default {
     goBack(){
       //先将组件隐藏掉
       this.$store.commit('editOtherShow')
-      //清除填写的信息
-      this.$store.commit('cleanOther')
+      this.$store.state.previewResume.others = this.oldValue.others
     },
     //将填写好的模块暂时保存在session中
     save() {
-        if (this.$store.state.Other === ''){
-          this.isFull = false
-          this.$message({
-            message: '内容未填写完整！！！',
-            type: 'warning'
-          });
-        }else {
-          this.isFull = true
-        }
-      if (this.isFull){
-        sessionStorage.setItem('other',this.$store.state.Other)
-        //将组件隐藏掉
-        this.$store.commit('editOtherShow')
-      }
+      //将修改内容存入session
+      sessionStorage.setItem('previewResume',JSON.stringify(this.$store.state.previewResume))
+      //将组件隐藏掉
+      this.$store.commit('editOtherShow')
     }
+  },
+  created() {
+    this.oldValue.others = this.$store.state.previewResume.others
   }
 }
 </script>

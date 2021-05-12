@@ -6,10 +6,19 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
+        // test:'aaa',
         //登陆状态
         login_state: sessionStorage.getItem("login_state"),
         //登录用户信息
         jobseeker: sessionStorage.getItem("jobseeker"),
+        //初始化的简历信息
+        resume: JSON.parse(sessionStorage.getItem('resumeList')),
+        //编辑的简历
+        // previewResume:JSON.parse(sessionStorage.getItem('previewResume')),
+        previewResume:'',
+
+        //投递的简历
+        postResume:'',
         //简历编辑界面是否显示
         isShow:{
             editHead:false,
@@ -22,57 +31,7 @@ export default new Vuex.Store({
             editOther:false,
             editConclusion:false
         },
-        //简历的基本信息
-        BaseInfo:{
-            name:'',
-            phone:'',
-            email:'',
-            location:'',
-            nation:'',
-            status:'',
-            sex:'',
-            birth:'',
-            job:'',
-            wage:''
-        },
-        //简历教育经历信息
-        EduInfo: {
-            school:'',
-            profession:'',
-            background:'',//学历
-            academy:'',//学院
-            eduExp:''
-        },
-        //专业技能信息
-        Skill:'',
-        //项目经历信息
-        Program: {
-            name:'',
-            role:'',
-            express:''
-        },
-        //项目经历信息
-        Program1: {
-            name:'',
-            role:'',
-            express:''
-        },
-        //校内经历
-        SchoolExp:{
-            name:'',
-            role:'',
-            express:''
-        },
-        //校内经历
-        SchoolExp1:{
-            name:'',
-            role:'',
-            express:''
-        },
-        //其他
-        Other:'',
-        //个人总结
-        Conclusion:''
+
     },
     mutations: {
         //登录

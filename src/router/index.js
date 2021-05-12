@@ -95,9 +95,9 @@ const routes = [
 
         }
     },{
-        path: '/editPerson',
-        mame:'EditPerson',
-        component: () => import('../views/EditPerson'),
+        path: '/resumeDetail',
+        mame:'resumeDetail',
+        component: () => import('../views/ResumeDetail'),
         meta: {
             requireAuth: true//配置拦截
 

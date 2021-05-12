@@ -1,7 +1,17 @@
 <template>
   <div class="edit">
     <div class="edit-head clearfix">
-      <a class="back" @click="goBack"><&nbsp;返回</a>
+      <el-popconfirm
+          confirm-button-text='确认返回'
+          cancel-button-text='点错了'
+          icon="el-icon-info"
+          icon-color="red"
+          title="返回将不保存修改，请问是否返回？"
+          @confirm="goBack"
+      >
+        <a class="back" slot="reference"><&nbsp;返回</a>
+      </el-popconfirm>
+
       <h3>专业技能</h3>
       <a class="save" @click="save">保存</a>
     </div>
@@ -10,8 +20,8 @@
         <span>专业技能描述</span>
         <mavon-editor :toolbars="toolbars"
                       style="margin-top: 5px;"
-                      placeholder=""
-                      v-model="$store.state.Skill"
+                      placeholder="请输入掌握的相关技能。。。"
+                      v-model="$store.state.previewResume.skill"
                       defaultOpen="edit"></mavon-editor>
       </section>
     </div>
@@ -23,6 +33,7 @@ export default {
   name: "edit-resume-skill",
   data() {
     return{
+      oldSkill:'',
       isFull:'',
       //md工具栏选项
       toolbars: {
@@ -40,32 +51,20 @@ export default {
   methods:{
     //  返回按钮功能
     goBack(){
+      this.$store.state.previewResume.skill = this.oldSkill
       //先将组件隐藏掉
       this.$store.commit('editSkillShow')
-      //清除填写的信息
-      this.$store.commit('cleanSkill')
     },
     //将填写好的模块暂时保存在session中
     save() {
-      for (let key in this.$store.state.EduInfo) {
-        if (this.$store.state.EduInfo[key] === ''){
-          this.isFull = false
-          this.$message({
-            message: '内容未填写完整！！！',
-            type: 'warning'
-          });
-          break
-        }else {
-          this.isFull = true
-        }
-      }
-      if (this.isFull){
-        sessionStorage.setItem('skill',this.$store.state.Skill)
+          //将修改内容存入session
+        sessionStorage.setItem('previewResume',JSON.stringify(this.$store.state.previewResume))
         //将组件隐藏掉
         this.$store.commit('editSkillShow')
-      }
-      console.log(this.$store.state.EduInfo.schoolExp)
     }
+  },
+  created() {
+    this.oldSkill = this.$store.state.previewResume.skill
   }
 }
 </script>

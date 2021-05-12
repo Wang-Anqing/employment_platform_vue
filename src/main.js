@@ -13,6 +13,12 @@ import Moment from 'moment';
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 
+import Router from 'vue-router'
+
+const routerPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+    return routerPush.call(this, location).catch(error=> error)}
+
 Vue.use(VueSession)
 Vue.use(VueCookies)
 Vue.use(Vuex)

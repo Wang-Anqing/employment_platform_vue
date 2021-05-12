@@ -1,5 +1,22 @@
-/*简历展示界面*/
+/*简历标题*/
+.edit-title-box {
+    width: 400px;
+    height: 42px;
+    margin: 20px auto;
+    border-bottom: 2px solid rgba(0,0,0,.1);
+}
+.edit-title-box>input {
+    width: 400px;
+    height: 100%;
+    outline:none;
+    border:0;
+    font-size: 2em;
+    font-weight: 600;
+    text-align: center;
+}
+    /*简历展示界面*/
 .resume {
+    position: relative;
     display: inline-block;
     width: 580px;
     height: auto;
@@ -46,7 +63,7 @@
     margin: 0 2px;
 }
 
-.avatar-uploader .el-upload {
+.avatar-uploader1 .el-upload {
     border: 1px dashed #d9d9d9;
     border-radius: 6px;
     cursor: pointer;
@@ -55,10 +72,10 @@
     top: 0;
     right: 0;
 }
-.avatar-uploader .el-upload:hover {
+.avatar-uploader1 .el-upload1:hover {
     border-color: #409EFF;
 }
-.avatar-uploader-icon {
+.avatar-uploader-icon1 {
     font-size: 28px;
     color: #8c939d;
     width: 80px;
@@ -66,7 +83,7 @@
     line-height: 96px;
     text-align: center;
 }
-.avatar {
+.avatar1 {
     width: 80px;
     height: 96px;
     display: block;
@@ -150,4 +167,29 @@
     padding: 0;
     list-style: inherit;
     font-size: 12px;
+}
+/*简历提交按钮*/
+.submit-resume {
+    position: absolute;
+    width: 155px;
+    height: 155px;
+    border-radius: 50%;
+    bottom: 0px;
+    right: -175px;
+}
+.submit-resume a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: #00a4ff;
+    border-radius: 50%;
+}
+.submit-resume a i {
+    color: #fff;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 100px;
+    line-height: 155px;
 }

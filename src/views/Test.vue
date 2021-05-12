@@ -9,6 +9,8 @@
         name: "Test",
         data() {
             return {
+              testValue1:'',
+              testValue2:'',
                 view:false
             };
         },
@@ -22,7 +24,15 @@
             })
           }
         },
-
+      created() {
+          this.testValue1 = this.$store.state.test
+          this.testValue2 = this.$store.state.test
+          this.testValue1 = 'bbbbb'
+        console.log('value1 is :')
+        console.log(this.testValue1)
+        console.log('value2 is :')
+        console.log(this.testValue2)
+      }
     }
 </script>
 
