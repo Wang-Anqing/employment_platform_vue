@@ -16,8 +16,8 @@
                 <i class="iconfont icon-socar_Third_icon pre-icon" style="color: #9a6e3a;font-size: 20px" v-if="index === 2"></i>
                 <span class="sort" v-if="index >= 3">{{index}}</span>
                 <h3>{{item.name}}</h3>
-                <i class="iconfont icon-new next-icon" style="color: #ff9f1a;font-size: 20px" v-if="item.isNew"></i>
-                <i class="iconfont icon-hot next-icon" style="color: #eb3b5a;font-size: 20px" v-if="item.isHot"></i>
+                <i class="iconfont icon-new next-icon" style="color: #ff9f1a;font-size: 20px" v-if="item.isNew==='1'"></i>
+                <i class="iconfont icon-hot next-icon" style="color: #eb3b5a;font-size: 20px" v-if="item.isHot==='1'"></i>
               </router-link>
             </li>
           </ul>
@@ -37,8 +37,8 @@
                 <i class="iconfont icon-socar_Third_icon pre-icon" style="color: #9a6e3a;font-size: 20px" v-if="index === 2"></i>
                 <span class="sort" v-if="index >= 3">{{index}}</span>
                 <h3>{{item.name}}</h3>
-                <i class="iconfont icon-new next-icon" style="color: #ff9f1a;font-size: 20px" v-if="item.isNew"></i>
-                <i class="iconfont icon-hot next-icon" style="color: #eb3b5a;font-size: 20px" v-if="item.isHot"></i>
+                <i class="iconfont icon-new next-icon" style="color: #ff9f1a;font-size: 20px" v-if="item.isNew==='1'"></i>
+                <i class="iconfont icon-hot next-icon" style="color: #eb3b5a;font-size: 20px" v-if="item.isHot==='1'"></i>
               </router-link>
             </li>
           </ul>
@@ -58,8 +58,8 @@
                 <i class="iconfont icon-socar_Third_icon pre-icon" style="color: #9a6e3a;font-size: 20px" v-if="index === 2"></i>
                 <span class="sort" v-if="index >= 3">{{index}}</span>
                 <h3>{{item.name}}</h3>
-                <i class="iconfont icon-new next-icon" style="color: #ff9f1a;font-size: 20px" v-if="item.isNew"></i>
-                <i class="iconfont icon-hot next-icon" style="color: #eb3b5a;font-size: 20px" v-if="item.isHot"></i>
+                <i class="iconfont icon-new next-icon" style="color: #ff9f1a;font-size: 20px" v-if="item.isNew==='1'"></i>
+                <i class="iconfont icon-hot next-icon" style="color: #eb3b5a;font-size: 20px" v-if="item.isHot==='1'"></i>
               </router-link>
             </li>
           </ul>

@@ -45,7 +45,7 @@
         <span>政治面貌</span>
         <el-select clearable placeholder="请选择"
                    style="display: inline-block;width: 270px"
-                   v-model="$store.state.previewResume.status"
+                   v-model="$store.state.previewResume.politicalStatus"
 
         >
           <el-option
@@ -75,7 +75,7 @@
             type="date"
             placeholder="选择日期"
             style="display: inline-block;width: 270px"
-            v-model="$store.state.previewResume.birth"
+            v-model="$store.state.previewResume.birthday"
             value-format="yyyy-MM-dd"
         >
         </el-date-picker>

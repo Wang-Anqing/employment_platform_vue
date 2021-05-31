@@ -103,9 +103,26 @@ const routes = [
 
         }
     },{
+        path: '/newresume',
+        mame:'newresume',
+        component: () => import('../views/NewResume'),
+        meta: {
+            requireAuth: true//配置拦截
+
+        }
+    },{
         path: '/test',
         name: 'Test',
         component: () => import('../views/Test.vue'),
+        meta: {
+            requireAuth: true//配置拦截
+
+        }
+    },
+    {
+        path: '/test1',
+        name: 'Test1',
+        component: () => import('../views/Test1.vue'),
         meta: {
             requireAuth: true//配置拦截
 

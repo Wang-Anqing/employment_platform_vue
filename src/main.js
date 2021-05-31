@@ -19,6 +19,9 @@ const routerPush = Router.prototype.push
 Router.prototype.push = function push(location) {
     return routerPush.call(this, location).catch(error=> error)}
 
+import htmlToPdf from '@/plugins/htmlToPdf'
+Vue.use(htmlToPdf)
+
 Vue.use(VueSession)
 Vue.use(VueCookies)
 Vue.use(Vuex)

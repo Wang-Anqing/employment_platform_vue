@@ -15,10 +15,11 @@ export default new Vuex.Store({
         resume: JSON.parse(sessionStorage.getItem('resumeList')),
         //编辑的简历
         // previewResume:JSON.parse(sessionStorage.getItem('previewResume')),
-        previewResume:'',
+        previewResume:{},
+        //创建新的简历
 
         //投递的简历
-        postResume:'',
+        postResume:{},
         //简历编辑界面是否显示
         isShow:{
             editHead:false,

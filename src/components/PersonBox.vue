@@ -40,17 +40,16 @@
             </router-link>
             <ul class="resume-popover">
 <!--              已创建的简历列表-->
-              <li class="resume-popover-item" v-for="(item,index) in resumeList"
-                  @click="previewResume(index)">
+              <li class="resume-popover-item" v-for="(item,index) in resumeList">
                 <!--                简历标题-->
                 <h4>{{ item.title }}</h4>
                 <!--                可选项-->
                 <ul class="clearfix">
                   <li class="resume-option">
-                    <a class="el-icon-view ">预览</a>
+                    <a class="el-icon-view " @click="previewResume(index)">预览</a>
                   </li >
                   <li class="resume-option">
-                    <a class="el-icon-download ">下载</a>
+                    <a class="el-icon-download " @click="download(index)">下载</a>
                   </li>
                   <li class="resume-option">
                     <a class="el-icon-delete ">删除</a>
@@ -61,10 +60,11 @@
               </li>
 <!--              新增简历按钮-->
               <li class="resume-popover-item">
-                <a class="add-resume">
+                <a class="add-resume" @click="newResume">
                   <span class="el-icon-plus"></span>
                 </a>
               </li>
+
             </ul>
           </el-popover>
           <router-link tag="li" :to="item.route" v-for="item in personNavItem">
@@ -174,6 +174,10 @@ export default {
     }
   },
   methods:{
+    //创建新简历
+    newResume(){
+      this.$router.push('/newresume')
+    },
     //上传前获取到文件信息
     beforeUpload(file) {
       console.log('file is :')
@@ -215,6 +219,10 @@ export default {
     //设置要预览的简历
     previewResume (index){
       this.$router.push({path:'/resumeDetail', query: {index:index}})
+    },
+    //点击下载简历
+    download(index) {
+      this.$router.push({path:'/resumeDetail', query: {index:index,operation:'download'}})
     },
   },
   created() {
