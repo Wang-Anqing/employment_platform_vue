@@ -19,7 +19,7 @@
 <!--          工作信息-->
           <div class="jobInfo">
             <el-collapse  accordion>
-              <el-collapse-item  v-for="item in job" :name=item.id style="width: 700px">
+              <el-collapse-item  v-for="(item,index0) in job" :name=item.id style="width: 700px">
                 <template slot="title">
                   <h2>{{item.name}}</h2>
                   <div>
@@ -36,7 +36,31 @@
                   <h3><i class="el-icon-s-cooperation"></i>岗位要求</h3>
                   <p>{{item.request}}</p>
                 </div>
-                <a class="sendResum" onclick="alert('投递成功！！！')">立即投递</a>
+                <el-popover
+                  placement="left"
+                  width="300"
+                  trigger="click">
+                  <a class="sendResum" slot="reference">立即投递</a>
+                  <ul>
+                    <li class="resume-popover-item" v-for="(resume,index) in resumeList"
+                        @click="selectResume(index,index0)"
+                    >
+                      <a>{{resume.title}}</a>
+                      <div>最近修改于：{{resume.updateTime}}</div>
+                    </li>
+                  </ul>
+                </el-popover>
+                <el-dialog  :visible.sync="dialogShow" append-to-body width="500px" :before-close="handleClose">
+                  <div class="dialog-body">
+                    <h2 style="display: inline-block;">人岗匹配度（百分制）:</h2>
+                    <h2 style="color: #00a4ff;display: inline-block;margin-left: 20px">{{score}}分</h2>
+                    <h3 style="margin-top: 20px">{{suggestion}}</h3>
+                  </div>
+                  <span slot="footer" class="dialog-footer">
+                    <el-button @click="dialogShow = false">再看看</el-button>
+                    <el-button type="primary" @click="sendResume">继续投递简历</el-button>
+                  </span>
+                </el-dialog>
               </el-collapse-item>
             </el-collapse>
           </div>
@@ -74,6 +98,25 @@
       components: {Footerbox},
       data() {
             return {
+              //简历投递记录
+              resumeBox: {
+                //求职者id
+                jobseekerId:0,
+                //选择投递的工作id
+                jobId:0,
+                //投递公司的id
+                companyId:0,
+                //选择投递的简历id
+                resumeId:0,
+              },
+              //是否显示Dialog
+              dialogShow: false,
+              //匹配度
+              score:0,
+              //岗位建议
+              suggestion:'',
+              //简历列表
+              resumeList:'',
               //  公司信息
                   company: {
                     id: 0,
@@ -121,6 +164,14 @@
             }
         },
       methods: {
+          //关闭dialog
+        handleClose(done) {
+          this.$confirm('是否放弃投递呢？')
+              .then(_ => {
+                done();
+              })
+              .catch(_ => {});
+        },
           dateFormat(date){
             if (date === null)
               return null;
@@ -128,9 +179,87 @@
               let date1 = moment(date).format('YYYY-MM-DD')
               return date1
             }
+          },
+        //获取点击投递的简历信息以及投递的JD信息，并接受返回的关键词
+        selectResume(index,index0) {
+          let reg =  /\s*/g
+          let jdStr = '';
+          let resumeStr= '';
+          let cv = this.resumeList[index];
+          let jb = this.job[index0];
+
+          //生成投递记录
+          this.resumeBox.resumeId = cv.id;
+          this.resumeBox.jobseekerId = JSON.parse(this.$store.state.jobseeker).id;
+          this.resumeBox.companyId = this.company.id;
+          this.resumeBox.jobId = jb.id;
+          console.log("当前的resumeBox为：")
+          console.log(this.resumeBox)
+
+          //创建生成关键词的的text
+          resumeStr = cv.academy+cv.background+cv.eduExpress+cv.job+cv.others+
+              cv.politicalStatus+cv.profession+cv.program1Express+cv.program1Name+
+              cv.program1Role+cv.program2Express+cv.program2Name+cv.program2Role+
+              cv.skill+cv.wage+cv.schoolexp1Express+cv.schoolexp1Name+cv.schoolexp1Role+
+              cv.schoolexp2Express+cv.schoolexp2Name+cv.schoolexp2Role
+          resumeStr = resumeStr.replaceAll(reg,'')
+          console.log('当前的简历str为')
+          console.log(resumeStr)
+          jdStr = jb.duty + jb.location + jb.name + jb.request + jb.tag
+          jdStr = jdStr.replaceAll(reg,'')
+          console.log('当前的JDStr为')
+          console.log(jdStr)
+          let obj = {
+            resume: resumeStr,
+            jd: jdStr
           }
+          console.log(JSON.stringify(obj))
+          this.$axios.post("/api/match",JSON.stringify(obj),{
+            headers: {
+              "Content-Type": "application/json;charset=utf-8", //头部信息
+            },
+          }).then((res) =>{
+            console.log('人岗匹配度为：')
+            console.log(res.data)
+            if (res.data > 0 && res.data < 10 )
+              this.score = Math.round(res.data * 5)
+            else  if (res.data < 13)
+              this.score = Math.round(res.data * 4.6)
+            else if (res.data < 19 )
+              this.score = Math.round(res.data * 4.3)
+            else
+              this.score = Math.round(Math.random()*10+81)
+            console.log("this.score is :"+ this.score)
+            //根据分数段设置就职建议
+            if (this.score>0 && this.score<60)
+              this.suggestion = '您可能不太适合这份工作，建议您换份工作试试-_-!!'
+            else if (this.score > 60 && this.score <80 )
+              this.suggestion = '这份工作与您较为匹配，可以试试哦－O－'
+            else
+              this.suggestion = '您比较适合这份工作，把握较大哦^_^'
+            this.dialogShow = true
+          })
+        },
+        //将简历投递给招聘单位
+        sendResume(){
+          this.$axios.post("/api/sendResume",JSON.stringify(this.resumeBox),{
+            headers:{
+              "Content-Type": "application/json;charset=utf-8", //头部信息
+            }
+          }).then((res) => {
+            this.dialogShow = false;
+            this.$message({
+              showClose: true,
+              message: '简历投递完成，可在个人中心查看详情',
+              type: 'success'
+            });
+          })
+        }
       },
       created() {
+          //初始化简历列表
+        this.resumeList = this.$store.state.resume
+
             let _this = this;
             this.company.id = this.$route.query.id;
             console.log('当前页面为' + this.company.id)
