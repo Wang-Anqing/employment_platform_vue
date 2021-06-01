@@ -2,8 +2,63 @@
     <div class="">
       <Header></Header>
       <div class="clearfix w">
+<!--        薪资分享-->
+        <div class="wage">
+          <ul>
+            <li class="wage-item" v-for="item in wageCard">
+              <h3 class="company_name">{{item.companyName}}</h3>
+              <h4 class="wage_num">{{item.account}}</h4>
+              <h4 class="job_name">{{item.jobName}}</h4>
+              <h4 class="share_date">{{item.submitDate}}</h4>
+            </li>
+<!--            发表薪资分享-->
+            <li class="add-share" @click="showWageShare">
+              <a  class="add-share-plus">
+                <span class="el-icon-plus"></span>
+              </a>
+            </li>
+          </ul>
+<!--          发表薪资的dialog-->
+          <el-dialog title="薪资分享" :visible.sync="wageDialogShow" width="500px">
+            <el-form ref="form" label-width="80px" :model="wageForm">
+              <el-form-item label="公司名称">
+                <el-input v-model="wageForm.companyName" disabled></el-input>
+              </el-form-item>
+              <el-form-item label="工作名称">
+                <el-select v-model="wageForm.jobName" placeholder="请选择工作名称" style="width: 380px">
+                  <el-option :label="item.name" :value="item.name" v-for="item in job"></el-option>
+                </el-select>
+              </el-form-item>
+              <el-form-item label="薪资描述">
+                <el-input v-model="wageForm.account" placeholder="例如：12K*13"></el-input>
+              </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+              <el-button @click="wageDialogShow = false">取 消</el-button>
+              <el-button type="primary" @click="share">分 享</el-button>
+            </div>
+          </el-dialog>
+        </div>
+        <!--        右侧-->
+        <div class="right">
+          <div class="companyLogo" style="margin:0 auto">
+            <img style="width: 75px;height: 75px" :src="company.logoSrc">
+            <h3>{{company.name}}</h3>
+          </div>
+          <!--          时间线-->
+          <div class="timeLine">
+            <el-timeline >
+              <el-timeline-item
+                  v-for="(item,index) in date"
+                  :timestamp="item.timestamp"
+                  color='#00a4ff'>
+                {{item.content}}
+              </el-timeline-item>
+            </el-timeline>
+          </div>
+        </div>
 <!--         左侧公司信息-->
-        <div class="main" style="float:left;">
+        <div class="main" style="float:right;">
           <div class="companyInfo">
             <h2>公司介绍</h2>
             <p>{{company.introduce}}</p>
@@ -65,25 +120,7 @@
             </el-collapse>
           </div>
         </div>
-<!--        右侧-->
-        <div class="right">
-          <div class="companyLogo" style="margin:0 auto">
-            <img style="width: 150px;height: 150px" :src="company.logoSrc">
-            <h3>{{company.name}}</h3>
-          </div>
-<!--          时间线-->
-          <div class="timeLine">
-            <el-timeline >
-              <el-timeline-item
-                  v-for="(item,index) in date"
-                  :timestamp="item.timestamp"
-                  color='#00a4ff'>
-                {{item.content}}
-              </el-timeline-item>
-            </el-timeline>
-          </div>
-        </div>
-<!--        相关讨论帖子-->
+
       </div>
       <Footerbox></Footerbox>
     </div>
@@ -98,6 +135,17 @@
       components: {Footerbox},
       data() {
             return {
+              //薪资分享表单
+              wageForm:{
+                companyId:'',
+                companyName:'',
+                jobName:'',
+                account:'',
+                submitDate:''
+              },
+              //薪资分享信息卡片
+              wageCard:[],
+              wageDialogShow:false,
               //简历投递记录
               resumeBox: {
                 //求职者id
@@ -164,6 +212,30 @@
             }
         },
       methods: {
+        share(){
+          this.wageForm.companyId = this.company.id
+          // console.log(this.wageForm)
+          this.$axios.post("/api/shareWage",{
+            companyId:this.wageForm.companyId,
+            companyName:this.wageForm.companyName,
+            jobName:this.wageForm.jobName,
+            account:this.wageForm.account,
+            submitDate:this.wageForm.submitDate
+          }).then((res) => {
+            this.$message({
+              showClose: true,
+              message: '薪资分享完成！！！',
+              type: 'success'
+            });
+            location.reload()
+          })
+          this.wageDialogShow = false
+        },
+        showWageShare(){
+          this.wageDialogShow = true
+          this.wageForm.companyName = this.company.name
+          this.wageForm.submitDate = moment().format("YYYY-MM-DD")
+        },
           //关闭dialog
         handleClose(done) {
           this.$confirm('是否放弃投递呢？')
@@ -305,6 +377,15 @@
           console.log(res)
         }).catch(error =>{
           console.log('浏览人数更新失败')
+        })
+
+        //获取薪资分享信息
+        this.$axios.post('/api/getWage',{
+          companyId: this.company.id
+        }).then((res) => {
+          this.wageCard = res.data
+          // console.log('薪资分享如下：')
+          // console.log(res)
         })
         }
     }
