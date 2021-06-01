@@ -42,7 +42,7 @@
                   trigger="click">
                   <a class="sendResum" slot="reference">立即投递</a>
                   <ul>
-                    <li class="resume-popover-item" v-for="(resume,index) in resumeList"
+                    <li class="resumebox-popover-item" v-for="(resume,index) in resumeList"
                         @click="selectResume(index,index0)"
                     >
                       <a>{{resume.title}}</a>
@@ -247,7 +247,7 @@
               "Content-Type": "application/json;charset=utf-8", //头部信息
             }
           }).then((res) => {
-            this.dialogShow = false;
+            this.dialogShow = false
             this.$message({
               showClose: true,
               message: '简历投递完成，可在个人中心查看详情',

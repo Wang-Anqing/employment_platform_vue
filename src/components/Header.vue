@@ -79,7 +79,7 @@
                     icon:'el-icon-edit',
                     name:'投递记录',
                     color:'color:#eeb53a',
-                    route: ''
+                    route: '/delivered'
                   },
                   {
                     icon:'el-icon-chat-line-square',

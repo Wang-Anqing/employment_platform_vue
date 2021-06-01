@@ -111,6 +111,14 @@ const routes = [
 
         }
     },{
+        path: '/delivered',
+        mame:'delivered',
+        component: () => import('../views/Delivered'),
+        meta: {
+            requireAuth: true//配置拦截
+
+        }
+    },{
         path: '/test',
         name: 'Test',
         component: () => import('../views/Test.vue'),

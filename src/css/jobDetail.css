@@ -120,7 +120,7 @@
     /*background-color: red;*/
 }
 /*简历弹出框的样式*/
-.resume-popover-item {
+.resumebox-popover-item {
     width: 278px;
     height: 70px;
     padding: 10px;
@@ -128,13 +128,13 @@
     cursor: pointer;
     text-align: center;
 }
-.resume-popover-item a {
+.resumebox-popover-item a {
     display: block;
     margin-bottom: 0;
     color: #409eff;
     font-weight: 600;
     font-size: 20px;
 }
-.resume-popover-item:hover {
+.resumebox-popover-item:hover {
     background-color: #f3f4f5;
 }

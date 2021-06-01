@@ -1,0 +1,72 @@
+.post-kind {
+    display: block;
+    width: 630px;
+    margin: 0 auto;
+    height: 60px;
+    /*background-color: red;*/
+}
+.title {
+    display: inline-block;
+    width: 90px;
+    height: 60px;
+    float: left;
+    background-color: #fff;
+    cursor: pointer ;
+    border-bottom: 1px solid #cbcbcb;
+}
+.title span {
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 18px;
+}
+.active {
+    color: #409eff;
+    border-bottom: 1px solid #409eff;
+}
+.deliver-body {
+    width: 1200px;
+    background-color: #fff;
+}
+.deliver-body-item {
+    position: relative;
+    width: 900px;
+    height: 110px;
+    margin: 0 auto;
+    /*background-color: red;*/
+    border-bottom: 1px solid #cbcbcb;
+    padding-top: 15px;
+}
+.jobName {
+    position: absolute;
+    left: 30px;
+    font-size: 18px;
+    color: #333333;
+}
+.operateDate {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    color: #999;
+    font-size: 14px;
+}
+.companyName {
+    position: absolute;
+    left: 30px;
+    top: 50px;
+    font-size: 14px;
+    color: #409eff;
+}
+.resume-title {
+    position: absolute;
+    left: 30px;
+    bottom: 10px;
+    color: #999;
+}
+.tip {
+    position: absolute;
+    right: 40px;
+    bottom: 30px;
+    color: #409eff;
+}
