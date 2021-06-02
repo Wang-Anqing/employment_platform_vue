@@ -1,0 +1,136 @@
+.discuss{
+    width: 1200px;
+}
+.discuss-head {
+    margin-top: 25px;
+}
+.add-discuss {
+    float: right;
+    width: 150px;
+    height: 40px;
+    background-color: #cbcbcb;
+}
+.add-discuss a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: pointer;
+}
+.add-discuss a span {
+    color: #333333;
+    float: left;
+    margin-left: 25px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.discuss-label {
+    border-bottom: 1px solid #919fbf;
+}
+.discuss-label span {
+    display: inline-block;
+    height: 50px;
+    padding: 15px;
+    color: #919fbf;
+    /*background-color: red;*/
+    margin-right: 30px;
+}
+.discuss-body {
+    width: 1200px;
+}
+.discuss-body .discuss-item {
+    position: relative;
+    height: 65px;
+    padding: 5px;
+    /*background-color: red;*/
+    border-bottom: 1px solid #a3a3a3;
+    cursor: pointer;
+}
+.discuss-title {
+    float: left;
+    font-size: 22px;
+    font-weight: 400;
+}
+.discuss-type-label {
+    float: left;
+}
+.discuss-type-label .span1 {
+    display: inline-block;
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    width: 15px;
+    height: 15px;
+}
+.discuss-type-label .span2 {
+    display: inline-block;
+    position: absolute;
+    bottom: 3px;
+    left: 30px;
+    color: #a3a3a3;
+}
+.discuss-userHeader {
+    position: absolute;
+    right: 285px;
+    float: right;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.discuss-userHeader img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.discuss-viewer {
+    float: right;
+    height: 60px;
+    line-height: 60px;
+    margin-right: 190px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #a3a3a3;
+    /*background-color: red;*/
+}
+.discuss-date {
+    position: absolute;
+    float: right;
+    height: 60px;
+    line-height: 60px;
+    right: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #a3a3a3;
+    /*background-color: red;*/
+}
+.discuss-reply {
+    position: relative;
+    margin-bottom: 13px;
+    border-bottom: 1px solid #cbcbcb;
+}
+.reply-header {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.reply-header img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.reply-username {
+    position: absolute;
+    top: 13px;
+    left: 65px;
+}
+.reply-date {
+    position: absolute;
+    right: 10px;
+    top: 13px;
+}
+.newReply-content {
+    height: 190px;
+}
