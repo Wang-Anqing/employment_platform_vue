@@ -47,7 +47,7 @@
         },
         methods: {
             toCompany() {
-                this.$router.push('/company')
+                this.$router.push('/company/login')
             },
             login(){
               //获取并验证登录信息

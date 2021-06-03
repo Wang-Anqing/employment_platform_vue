@@ -1,0 +1,42 @@
+body {
+    background-image: url("../../imgs/company-login-back.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.company-login {
+    position: relative;
+}
+.company-login-title {
+    position: absolute;
+    color: #ffffff;
+    font-size: 50px;
+}
+.company-login-cover {
+    position: absolute;
+    width: 470px;
+    height: 550px;
+    background-color: rgba(246, 247, 248,.3);
+    right: 270px;
+    top: 110px;
+    border-radius: 20px;
+}
+.company-forget {
+    display: inline-block;
+    width: 70px;
+    border-bottom: 2px solid #fff;
+    position: absolute;
+    color: #fff;
+    right: 70px;
+    bottom: 250px;
+    font-weight: 600;
+}
+.company-login-btn {
+    position: absolute;
+    right: 70px;
+    bottom: 150px;
+}
+.company-register-btn {
+    position: absolute;
+    right: 70px;
+    bottom: 100px;
+}

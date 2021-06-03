@@ -119,6 +119,10 @@ const routes = [
 
         }
     },{
+        path: '/company/login',
+        mame:'CompanyLogin',
+        component: () => import('../views/company/CompanyLogin'),
+    },{
         path: '/test',
         name: 'Test',
         component: () => import('../views/Test.vue'),
@@ -148,9 +152,15 @@ router.beforeEach((to,from,next)=>{
     if(to.meta.requireAuth){
         if(sessionStorage.getItem("jobseeker")){
             next();
-        }else{
+        }else if (!sessionStorage.getItem("jobseeker")){
             next({
                 path:'/login'
+            })
+        }else if (sessionStorage.getItem("company")){
+            next();
+        }else if (!sessionStorage.getItem('company')){
+            next({
+                path:'/company/login'
             })
         }
     }else{

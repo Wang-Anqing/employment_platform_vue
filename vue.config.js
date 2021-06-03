@@ -1,7 +1,7 @@
 module.exports = {
     devServer: {
         host: 'localhost',
-        port: 8080,//代理服务器端口
+        port: 8848,//代理服务器端口
         proxy: {
             '/api': {
                 target:'http://localhost:8081',//要跨域的域名

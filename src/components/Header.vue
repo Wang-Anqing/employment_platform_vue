@@ -98,8 +98,9 @@
                 this.$router.push('/login');
             },
           logOut(){
-               sessionStorage.removeItem("login_state")
-               sessionStorage.removeItem("jobseeker")
+               // sessionStorage.removeItem("login_state")
+               // sessionStorage.removeItem("jobseeker")
+                sessionStorage.clear()
                // sessionStorage.setItem("login_state",false)
               this.$message.error('已退出登录！！！')
             this.$store.commit("logout")
