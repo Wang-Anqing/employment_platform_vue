@@ -44,10 +44,21 @@ name: "CompanyLogin",
         }).then(res => {
           console.log('company is :')
           console.log(res)
+          this.company = res.data
+          this.$store.commit('company_login')
+          sessionStorage.setItem('company',JSON.stringify(res.data))
+          sessionStorage.setItem('company_login_state',true)
           this.$message({
             message: '登录成功',
             type: 'success'
           });
+          //获取该用户的job列表
+          this.$axios.get("/api/init/getJobList/"+this.company.id).then(res1 => {
+            // console.log('jobList is :')
+            // console.log(res1.data)
+            sessionStorage.setItem('jobList',JSON.stringify(res1.data))
+          })
+          this.$router.push('/company/index').catch(err => { console.log(err) })
         }).catch(error => {
           this.$message.error('用户名或密码错误')
         })

@@ -47,6 +47,7 @@
         },
         methods: {
             toCompany() {
+              sessionStorage.setItem('system','company')
                 this.$router.push('/company/login')
             },
             login(){

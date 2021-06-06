@@ -1,0 +1,35 @@
+body {
+    /*background-image: url("../../imgs/company-login-back.jpg");*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+    background: black url("../../imgs/company-login-back.jpg") no-repeat fixed top center;
+}
+.el-menu-vertical-demo {
+    height: 720px;
+}
+.company-title {
+    float: right;
+    width: 1344px;
+    height: 60px;
+    background-color: #545c64;
+}
+.company-job-main {
+    position: relative;
+    float: right;
+    width: 1344px;
+    height: 660px;
+    /*background-color: blue;*/
+}
+.company-submit-btn{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    color: #fff;
+    font-size: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #545c64;
+}

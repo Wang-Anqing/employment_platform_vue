@@ -78,15 +78,7 @@ const routes = [
             requireAuth: true//配置拦截
 
         }
-    },  {
-        path: '/company',
-        name: 'CompanyIndex',
-        component: () => import('../views/company/CompanyIndex'),
-        meta: {
-            requireAuth: true//配置拦截
-
-        }
-    },{
+    }, {
         path: '/resume',
         name: 'resume',
         component: ()=>import('../views/Resume'),
@@ -122,6 +114,21 @@ const routes = [
         path: '/company/login',
         mame:'CompanyLogin',
         component: () => import('../views/company/CompanyLogin'),
+    }, {
+        path: '/company/index',
+        name: 'CompanyIndex',
+        component: () => import('../views/company/CompanyIndex'),
+
+    },{
+        path: '/company/job',
+        name: 'CompanyIndex',
+        component: () => import('../views/company/CompanyJob'),
+
+    },{
+        path: '/company/resume',
+        name: 'CompanyIndex',
+        component: () => import('../views/company/CompanyResume'),
+
     },{
         path: '/test',
         name: 'Test',
@@ -150,18 +157,23 @@ const router = new VueRouter({
 
 router.beforeEach((to,from,next)=>{
     if(to.meta.requireAuth){
-        if(sessionStorage.getItem("jobseeker")){
-            next();
-        }else if (!sessionStorage.getItem("jobseeker")){
-            next({
-                path:'/login'
-            })
-        }else if (sessionStorage.getItem("company")){
-            next();
-        }else if (!sessionStorage.getItem('company')){
-            next({
-                path:'/company/login'
-            })
+        if (sessionStorage.getItem('system')==='jobseeker'){
+            if(sessionStorage.getItem("jobseeker")){
+                next();
+            }else if (!sessionStorage.getItem("jobseeker")){
+                next({
+                    path:'/login'
+                })
+            }
+        }
+        if (sessionStorage.getItem('system')==='company'){
+            if (sessionStorage.getItem("company")){
+                next();
+            }else if (!sessionStorage.getItem('company')){
+                next({
+                    path:'/company/login'
+                })
+            }
         }
     }else{
         next();

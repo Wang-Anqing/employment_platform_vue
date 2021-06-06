@@ -44,7 +44,7 @@
         } ,
       },
         created() {
-
+          sessionStorage.setItem('system','jobseeker')
         },
         watch: {
 

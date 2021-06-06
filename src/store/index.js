@@ -6,6 +6,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
+        //企业用户的登陆状态
+        company_login_state:sessionStorage.getItem('company_login_state'),
+        company: sessionStorage.getItem('company'),
         // test:'aaa',
         //登陆状态
         login_state: sessionStorage.getItem("login_state"),
@@ -35,6 +38,13 @@ export default new Vuex.Store({
 
     },
     mutations: {
+        //企业用户登录
+        company_login( state){
+            state.company_login_state = sessionStorage.getItem("company_login_state")
+            state.company = sessionStorage.getItem("company")
+            console.log(state.company_login_state)
+            console.log("企业用户登陆成功")
+        },
         //登录
         login( state ){
             state.login_state = sessionStorage.getItem("login_state")
@@ -46,6 +56,11 @@ export default new Vuex.Store({
         logout(state) {
             state.login_state = false
             state.jobseeker = ''
+            console.log("用户已注销")
+        },
+        company_logout(state) {
+            state.login_state = false
+            state.company = ''
             console.log("用户已注销")
         },
         //清空BaseInfo
